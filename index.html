@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piper TTS</title>
+</head>
+<body>
+    <h1>Piper Text-to-Speech</h1>
+    <form action="/synthesize/" method="post">
+        <label for="text">Enter text to synthesize:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Synthesize">
+    </form>
+    
+    {% if audio_url %}
+        <h2>Generated Audio</h2>
+        <audio controls>
+            <source src="{{ audio_url }}" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio>
+    {% endif %}
+</body>
+</html>
